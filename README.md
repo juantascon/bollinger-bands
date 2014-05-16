@@ -1,19 +1,19 @@
-AUTHOR: Juan Diego Tascón
-EMAIL: juantascon@horlux.org
-CREATED: 2014-05-05
+##AUTHOR: Juan Diego Tascón
+##EMAIL: juantascon@horlux.org
+##CREATED: 2014-05-05
 
-=== 1. charts:
+# 1. Charts:
 
 The charts are very simple, please read the code comments for more details.
 
 One thing is missing though, the example images on the description had a
-weird X axis, it is more useful (see links below) if the x axis represents
-time, in this case it represents the number of past days.
+weird X axis, it is more useful[1][2]  if the x axis represents
+time, in this implementation it represents the number of past days.
 
-http://stockcharts.com/help/doku.php?id=chart_school:technical_indicators:bollinger_bands
-http://biz.yahoo.com/charts/guide13.html
+* [1] [stockcharts.com](http://stockcharts.com/help/doku.php?id=chart_school:technical_indicators:bollinger_bands)
+* [2] [biz.yahoo.com](http://biz.yahoo.com/charts/guide13.html)
 
-=== 2. investment strategies:
+# 2. Investment Strategies:
 
 I came up with 4 simple independet invesment strategies:
 
@@ -22,8 +22,8 @@ I came up with 4 simple independet invesment strategies:
 * dowonce: invest if on the last 20 days close price passes at least once under lower band
 
 * moreup: invest if on the last 20 days the number of times close price passes
-    over the uppper band is greater than the number of times close price passes
-    under the lower band
+over the uppper band is greater than the number of times close price passes
+under the lower band
     
 * moredown: invest if on the last 20 days the number of times close price passes
 under the lower band is greater than the number of times close price passes
@@ -54,10 +54,11 @@ the stock market is too caotic, with way too many variables, this makes
 it hard to define completely safe invesment strategies, there will always
 be risk involved.
 
-=== 3. scripts:
+# 3. Scripts:
 
-* bolly.py: simple script that can be used to:
-    * generate (outputs to $PWD/$SYMBOL.png) bollinger bands, ex: bolly.py plot AMZN FB
-    * print wether or not you should invest given a strategy, ex: bolly.py suggest AMZN FB -s moredown
+* bolly.py:
+    * generates (outputs to $PWD/$SYMBOL.png) bollinger bands, ex: bolly.py plot AMZN FB
+    * prints wether or not you should invest given a strategy, ex: bolly.py suggest AMZN FB -s moredown
 
-* analizer.py: analyzes which strategies are better
+* analizer.py:
+    * analyzes which strategies are better
