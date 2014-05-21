@@ -42,19 +42,19 @@ DELTA=20 to compare the price 20 days before TODAY with the price of
 the same stock TODAY.
 
 The results seems to indicate that "moredown" and "downonce" are the best
-candidates. My own personal conclusion is that in the short term, at least
-for tech stocks, the more times a stock lower its price below the lower
-bollinger band the more likely is that the price increases on the short
-term as well. It is "weird" that a price goes below the lower bollinger
-band, when it happends the price might tend to normalize itself by going
-back up.
+candidates. My own personal conclusion is that in the short term the more
+times a stock lower its price below the lower bollinger band the more
+likely is that the price increases on the short term as well. It is "weird"
+that a price goes below the lower bollinger band, when it happends the price
+might tend to normalize itself by going back up. Becareful though because
+these was only tested on tech stocks, it might differ on other stocks.
 
 In the end to be honest I wouldn't use any of these for real investments,
 the stock market is too caotic, with way too many variables, this makes
 it hard to define completely safe invesment strategies, there will always
 be risk involved.
 
-# 3. Scripts:
+# 3 Python:
 
 * bolly.py:
     * generates (outputs to $PWD/$SYMBOL.png) bollinger bands, ex: bolly.py plot AMZN FB
@@ -62,3 +62,11 @@ be risk involved.
 
 * analizer.py:
     * analyzes which strategies are better
+
+# 4 GO:
+
+* main.go: 
+    * generates (outputs to $PWD/$SYMBOL.png) bollinger bands, ex: go run main.go -p AMZN FB
+    * prints wether or not you should invest given a strategy, ex: go run main.go -s moredown AMZN FB
+    * each symbol is processed using goroutines so that blocking syscalls won't stop other symbol's processing
+    
