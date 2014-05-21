@@ -16,6 +16,7 @@ type Band struct {
     Down float64
 }
 
+// Calculates bands for all days
 func All(symbol string) (bands []Band) {
     historical := ystock.HistoricalClosingValues(symbol, settings.TODAY, settings.SMA_DAYS+settings.GRAPH_DAYS)
     
@@ -32,6 +33,7 @@ func All(symbol string) (bands []Band) {
     return
 }
 
+// Calculates bands for one day
 func One(historical []ystock.ClosingValue) (result Band) {
     size := len(historical)
     //fmt.Println(size, historical[0].Date.String(), historical[size-1].Date.String())
@@ -48,6 +50,7 @@ func One(historical []ystock.ClosingValue) (result Band) {
     for i := 0; i < size; i++ {
         squares += math.Pow((historical[i].Value-sma), 2)
     }
+    
     // standard deviation
     dev := math.Sqrt( squares / float64(size) )
     
